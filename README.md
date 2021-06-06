@@ -10,34 +10,12 @@ repo init -u https://github.com/LineageOS/android.git -b lineage-17.1 --groups=a
 
 ## Decide, what you want to do
 The main purpose of this organization is to build the "hardened microG" variants for below listed devices:
-- Sony Xperia Z1 compact (amami) [XDA Thread amami](https://forum.xda-developers.com/t/rom-unofficial-10-0-signed-ota-lineage-os-17-1-for-xperia-z1-compact.4007983/)
 - OnePlus 3T (oneplus3) [XDA Thread oneplus3](https://forum.xda-developers.com/t/rom-unofficial-10-0-microg-signed-hardened-lineageos-17-1-oneplus-3-3t.4219383/)
 - OnePlus 7T Pro (hotdog) [XDA Thread hotdog](https://forum.xda-developers.com/t/rom-unofficial-10-0-microg-signed-hardened-lineageos-17-1-oneplus-7t-pro.4222945/)
-- Motorola Moto G3 (osprey) [XDA Thread osprey](https://forum.xda-developers.com/t/rom-unofficial-10-0-0-microg-signed-lineageos-17-1-for-motorola-g3-osprey.4218515/)
-- LG G5 international (h850) - no XDA thread
 
-With the exception of the amami device, all other listed devices are officially supported by LineageOS, so if you are not interested in the "hardened microG" 
-build variant for any other of above devices than the amami, you should simply stick to the official LineageOS builds and build instructions. 
+You would like to build the "hardened microG" build variant for any of the above devices
 
-So you have two options:
-1. You simply would like to build the "default LineageOS 17.1" for the amami device
-2. You would like to build the "hardened microG" build variant for any of the above devices
-
-## Option 1 - build standard LineageOS 17.1 for the amami device
-Continue as outlined below after having initialized the build tree
-```Shell session
-curl https://raw.githubusercontent.com/lin17-microG/local_manifests/lineage-17.1/setup_common.xml > .repo/setup_common.xml
-curl https://raw.githubusercontent.com/lin17-microG/local_manifests/lineage-17.1/setup_sony.xml > .repo/setup_sony.xml
-repo sync --no-tags
-```
-After the tree has been synch'ed, enter the below commands to build LineageOS 17.1 for the amami device:
-```Shell session
-source build/envsetup.sh
-brunch amami
-```
-You can also follow the instructions given in below option 2 and execute `./switch_microG default` to checkout the 'lineage-17.1' default branches.
-
-## Option 2 - build the "hardened microG" variant for any of the above listed devices
+## build the "hardened microG" variant for any of the above listed devices
 Of course, you can use the below instructions for ANY device, but if you would like to build for any other device, 
 you have to first replicate the device-specific repositories of your device, such as device-config, kernel and vendor blobs. 
 To do so, the local_manifests directory needs to be updated accordingly (I am not going to explain that part, there is plenty of info available).
@@ -45,7 +23,7 @@ To do so, the local_manifests directory needs to be updated accordingly (I am no
 ### Step 1 - Basic tree synchronization
 ```Shell session
 cd .repo
-git clone https://github.com/lin17-microG/local_manifests 
+git clone https://github.com/Androidiana/local_manifests 
 cd local_manifests 
 git checkout lineage-17.1
 cd ../.. 
